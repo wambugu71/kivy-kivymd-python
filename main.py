@@ -7,7 +7,7 @@ from kivymd.toast import toast
 from kivy.uix.screenmanager import Screen
 from phonenumbers import geocoder, carrier, timezone
 from kivy.config import Config
-#Config.set("graphics", "fullscreen", 1)
+#Config.set("graphics", "fullscreen", 0)
 Builder.load_string('''                   
 <inputme>:
     txtinput: txtinput
