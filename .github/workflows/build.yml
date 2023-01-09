@@ -29,7 +29,7 @@ jobs:
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
 
       - name: Build with Buildozer
-        uses: buildozer.spec
+        uses: wambugu71/repo@ref
         id: buildozer
         with:
           command: buildozer android release
