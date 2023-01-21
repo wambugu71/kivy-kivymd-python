@@ -1,7 +1,11 @@
-name: CI
+name: APK build
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 1,15 * *'
 
 jobs:
   build:
@@ -29,10 +33,10 @@ jobs:
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
 
       - name: Build with Buildozer
-        uses: wambugu71/repo@ref
+        uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          command: buildozer android release
+          command: buildozer android debug
           buildozer_version: master
 
       - name: Upload artifacts
